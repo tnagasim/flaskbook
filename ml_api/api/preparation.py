@@ -8,7 +8,7 @@ from api.models import ImageInfo, db
 
 
 def load_filenames(dir_name: str) -> list[str]:
-    """ 手書き文字画像が置いてあるパスからファイル名を取得し、リストを作成"""
+    """手書き文字画像が置いてあるパスからファイル名を取得し、リストを作成"""
     included_ext = current_app.config["INCLUDED_EXTENTION"]
     dir_path = Path(__file__).resolve().parent.parent / dir_name
     files = Path(dir_path).iterdir()

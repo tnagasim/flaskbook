@@ -52,7 +52,7 @@ def detection(request):
             # 検知されたラベルとスコアの辞書を作成
             dict_results[labels[label]] = round(100 * score.item())
     # 画像保存先のディレクトリのフルパスを作成
-    dir_image = str(basedir / "data" / "output" /filename)
+    dir_image = str(basedir / "data" / "output" / filename)
 
     # 検知後の画像ファイルを保存
     cv2.imwrite(dir_image, cv2.cvtColor(result_image, cv2.COLOR_RGB2BGR))

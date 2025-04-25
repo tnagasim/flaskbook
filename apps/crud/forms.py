@@ -24,7 +24,9 @@ class UserForm(FlaskForm):
     )
 
     # ユーザーフォームpassword属性のラベルとバリデータを設定する
-    password = PasswordField("パスワード", validators=[DataRequired(message="パスワードは必須です。")])
+    password = PasswordField(
+        "パスワード", validators=[DataRequired(message="パスワードは必須です。")]
+    )
 
     # ユーザーフォームsubmitの文言を設定する
     submit = SubmitField("新規登録")

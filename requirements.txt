@@ -1,6 +1,6 @@
 alembic
 attrs
-black
+black[jupyter]
 blinker
 click
 coverage
