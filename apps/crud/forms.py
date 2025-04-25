@@ -4,7 +4,7 @@ from wtforms.validators import DataRequired, Email, length
 
 
 # ユーザー新規作成とユーザー編集フォームクラス
-class UserForm(FlaskForm):
+class UserForm(FlaskForm):  # type: ignore[misc]
     # ユーザーフォームのusername属性のラベルとバリデータを設定する
     username = StringField(
         "ユーザー名",
