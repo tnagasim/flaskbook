@@ -60,9 +60,12 @@ def test_insert_filenames(app):
 
     # EXECUTE
     with app.test_request_context(path, method="POST", json=payload) as req:
-        json_response = insert_filenames(req.request)
+        json_response, _ = insert_filenames(req.request)
 
-    actual_data = json_response[0].json["file_id"]
+    if json_response.json is not None:
+        actual_data = json_response.json["file_id"]
+    else:
+        raise ValueError("No JSON data in response")
 
     # CHECK
     assert isinstance(actual_data, str)
@@ -90,5 +93,5 @@ def test_extract_filenames(app_made_preparation):
 
     # CHECK
     assert len(expected_data) == len(actual_data)
-    assert sorted(expected_data) == sorted(actual_data)
+    assert sorted(expected_data, key=str) == sorted(actual_data, key=str)
     assert all([a == b for a, b in zip(expected_data, actual_data)])
