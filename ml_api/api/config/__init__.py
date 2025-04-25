@@ -1,3 +1,3 @@
 from api.config import config
 
-config = {"local": config.LocalConfig}
+config_dict = {"local": config.LocalConfig}
