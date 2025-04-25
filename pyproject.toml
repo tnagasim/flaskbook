@@ -1,6 +1,6 @@
 [tool.black]
 line-length = 88
-target-version = ["py39"]
+target-version = ["py313"]
 skip-string-normalization = false
 
 [tool.isort]
@@ -11,12 +11,14 @@ include_trailing_comma = true
 
 [tool.ruff]
 line-length = 88
-select = ["E", "F", "W"]
-ignore = ["E203", "E501"]  # blackと競合するルール
 fix = true
 unsafe-fixes = true
-target-version = "py39"
+target-version = "py313"
 exclude = ["migrations", "__pycache__"]
 
-[tool.ruff.per-file-ignores]
+[tool.ruff.lint]
+select = ["E", "F", "W"]
+ignore = ["E203", "E501"]  # blackと競合するルール
+
+[tool.ruff.lint.per-file-ignores]
 "tests/*" = ["S101"]  # テスト内のassert許容など、必要に応じて調整
