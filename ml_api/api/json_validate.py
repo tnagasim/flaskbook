@@ -11,7 +11,7 @@ def validate_json(f):
         # リクエストのコンテンツタイプがjsonかどうかをチェックします。
         ctype = request.headers.get("Content-Type")
         method_ = request.headers.get("X-HTTP-Method-Override", request.method)
-        if method_.lower() == request.method.lower() and "json" in ctype:
+        if method_.lower() == request.method.lower() and ctype and "json" in ctype:
             try:
                 # bodyメッセージがそもそもあるかどうかをチェックします。
                 request.json

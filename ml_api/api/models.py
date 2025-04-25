@@ -1,9 +1,10 @@
 from flask_sqlalchemy import SQLAlchemy
 
-db = SQLAlchemy()
+
+db: SQLAlchemy = SQLAlchemy()
 
 
-class ImageInfo(db.Model):
+class ImageInfo(db.Model):  # type: ignore
     # テーブル定義
     __tablename__ = "image_info"
 
