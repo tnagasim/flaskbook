@@ -6,15 +6,15 @@ from flask import Flask
 from flask_migrate import Migrate
 
 from api import api
-from api.config import config
+from api.config import config_dict
 from api.models import db
 
 
-def create_app():
+def create_app() -> Flask:
     config_name = os.environ.get("CONFIG", "local")
 
     app = Flask(__name__)
-    app.config.from_object(config[config_name])
+    app.config.from_object(config_dict[config_name])
 
     config_json_path = Path(__file__).parent / "config" / "json_schemas"
     for p in config_json_path.glob("*.json"):
