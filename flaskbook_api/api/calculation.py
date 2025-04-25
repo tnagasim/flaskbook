@@ -1,4 +1,3 @@
-from os import abort
 from pathlib import Path
 
 import cv2

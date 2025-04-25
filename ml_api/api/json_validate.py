@@ -15,7 +15,7 @@ def validate_json(f):
             try:
                 # bodyメッセージがそもそもあるかどうかをチェックします。
                 request.json
-            except BadRequest as e:
+            except BadRequest:
                 msg = "This is an invalid json"
                 return jsonify({"error": msg}), 400
             return f(*args, **kw)
