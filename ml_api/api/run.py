@@ -16,7 +16,7 @@ def create_app():
     app = Flask(__name__)
     app.config.from_object(config[config_name])
 
-    config_json_path = Path(__file__).parent / "config" / "json-schemas"
+    config_json_path = Path(__file__).parent / "config" / "json_schemas"
     for p in config_json_path.glob("*.json"):
         with open(p) as f:
             json_name = p.stem
