@@ -1,6 +1,7 @@
 import numpy as np
-from api.preprocess import get_grayscale, get_shrinked_img, shrink_image
 from PIL import Image
+
+from api.preprocess import get_grayscale, get_shrunk_img, shrink_image
 
 
 def test_get_grayscale(app):
@@ -27,7 +28,7 @@ def test_get_grayscale(app):
     # EXECUTE
     actual_data = get_grayscale(test_data)
     # CHECK
-    assert type(expected_generator) == type(actual_data)
+    assert type(expected_generator) is type(actual_data)
     assert expected_len == len(list(actual_data))
 
 
@@ -45,7 +46,7 @@ def test_shrink_image(app):
         assert expected_data.all() == actual_data.all()
 
 
-def test_get_shrinked_img(app):
+def test_get_shrunk_img(app):
     # SET
     test_data = [
         "0.jpg",
@@ -62,7 +63,7 @@ def test_get_shrinked_img(app):
     expected_len = 10
 
     # EXECUTE
-    actual_data = get_shrinked_img(test_data)
+    actual_data = get_shrunk_img(test_data)
 
     # CHECK
     assert expected_len == len(actual_data)

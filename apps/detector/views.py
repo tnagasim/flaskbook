@@ -6,12 +6,6 @@ import cv2
 import numpy as np
 import torch
 import torchvision
-from apps.app import db
-from apps.crud.models import User
-
-# UploadImageFormをimportする
-from apps.detector.forms import DeleteForm, DetectorForm, UploadImageForm
-from apps.detector.models import UserImage, UserImageTag
 from flask import (
     Blueprint,
     current_app,
@@ -26,6 +20,13 @@ from flask import (
 # login_required, current_userをimportする
 from flask_login import current_user, login_required
 from PIL import Image
+
+from apps.app import db
+from apps.crud.models import User
+
+# UploadImageFormをimportする
+from apps.detector.forms import DeleteForm, DetectorForm, UploadImageForm
+from apps.detector.models import UserImage, UserImageTag
 
 # template_folderを指定する（staticは指定しない）
 dt = Blueprint("detector", __name__, template_folder="templates")

@@ -2,9 +2,8 @@ import json
 
 from flask import Blueprint, jsonify, request
 
-from api import calculation, preparation
-
 from .json_validate import validate_json, validate_schema
+from api import calculation, preparation
 
 api = Blueprint("api", __name__, url_prefix="/v1")
 

@@ -1,5 +1,5 @@
-from pathlib import Path
 import uuid
+from pathlib import Path
 
 from flask import abort, current_app, jsonify
 from sqlalchemy.exc import SQLAlchemyError
@@ -37,7 +37,7 @@ def insert_filenames(request) -> tuple:
     return jsonify({"file_id": file_id}), 201
 
 
-def extract_filenames(file_id: str) -> list[str]:
+def extract_filenames(file_id: str) -> list:
     """手書き文字画像のファイル名をデータベースから取得"""
     img_obj = db.session.query(ImageInfo).filter(ImageInfo.file_id == file_id)
     filenames = [img.filename for img in img_obj if img.filename]
@@ -46,9 +46,9 @@ def extract_filenames(file_id: str) -> list[str]:
         # abort(404, {"error_message": "filenames are not found in database"})
 
         # p449: abortで処理を止めず、jsonifyを実装した場合のコード
-        return (
+        return [
             jsonify({"message": "filenames are not found in database", "result": 400}),
             400,
-        )
+        ]
 
     return filenames

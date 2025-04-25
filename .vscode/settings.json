@@ -2,20 +2,20 @@
     "python.linting.flake8Enabled": true,
     "python.linting.enabled": true,
     "python.formatting.provider": "black",
-    "editor.formatOnSave": true,
+    "editor.formatOnSave": false,
     "editor.codeActionsOnSave": {
-        "source.organizeImports": "explicit"
+        "source.organizeImports": "never"
     },
     "python.linting.mypyEnabled": true,
     "python.linting.flake8Args": [
         "--max-line-length=88"
     ],
-    "python.sortImports.path": "isort",
-    "python.sortImports.args": [
-        "--profile",
-        "black"
-    ],
-    "python.linting.isortEnabled": true,
+    // "python.sortImports.path": "isort",
+    // "python.sortImports.args": [
+    //     "--profile",
+    //     "black"
+    // ],
+    // "python.linting.isortEnabled": true,
     "cSpell.words": [
         "alisson",
         "anyio",
@@ -53,6 +53,7 @@
         "itsdangerous",
         "jinjahtml",
         "joblib",
+        "jsonify",
         "jsonschema",
         "jupyterlab",
         "kiwisolver",
@@ -76,6 +77,7 @@
         "nbclient",
         "nbconvert",
         "nbformat",
+        "ndarray",
         "noninteractive",
         "numpy",
         "onupdate",

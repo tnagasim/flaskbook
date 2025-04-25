@@ -1,23 +1,22 @@
 import pickle
 
 import numpy as np
-from flask import jsonify
+from flask import Response, jsonify
 
 from api.preparation import extract_filenames
-from api.preprocess import get_shrinked_img
+from api.preprocess import get_shrunk_img
 
 
-def evaluate_probs(request) -> tuple:
+def evaluate_probs(request) -> Response:
     """テストデータを利用してロジスティック回帰の学習済みモデルのアウトプットを評価"""
     file_id = request.json["file_id"]
     filenames = extract_filenames(file_id)
-    img_test = get_shrinked_img(filenames)
+    img_test = get_shrunk_img(filenames)
 
     with open("model.pickle", mode="rb") as fp:
         model = pickle.load(fp)
 
-    X_true = [int(filename[:1]) for filename in filenames]
-    X_true = np.array(X_true)
+    X_true = np.array([int(filename[:1]) for filename in filenames])
 
     predicted_result = model.predict(img_test).tolist()
     accuracy = model.score(img_test, X_true).tolist()

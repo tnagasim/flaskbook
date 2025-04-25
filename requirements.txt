@@ -47,6 +47,8 @@ toml
 tomli
 torch
 torchvision
+types-Flask-Migrate
+types-wtforms
 typing_extensions
 Werkzeug
 WTForms

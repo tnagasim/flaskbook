@@ -2,6 +2,7 @@ import os
 import shutil
 
 import pytest
+
 from apps.app import create_app, db
 from apps.crud.models import User
 from apps.detector.models import UserImage, UserImageTag

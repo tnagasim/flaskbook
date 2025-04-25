@@ -1,8 +1,9 @@
 from pathlib import Path
 
-from apps.detector.models import UserImage
 from flask.helpers import get_root_path
 from werkzeug.datastructures import FileStorage
+
+from apps.detector.models import UserImage
 
 
 def test_index(client):

@@ -46,7 +46,7 @@ def shrink_image(
     return img_data16
 
 
-def get_shrinked_img(filenames: list[str]):
+def get_shrunk_img(filenames: list[str]):
     """モデルにインプットする画像の数値データのリストを作成する関数"""
     img_test = np.empty((0, 64))
     for img in get_grayscale(filenames):
