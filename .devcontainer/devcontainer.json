@@ -15,6 +15,7 @@
 				"python.defaultInterpreterPath": "/usr/local/bin/python"
 			},
 			"extensions": [
+				"charliermarsh.ruff",
 				"csholmq.excel-to-markdown-table",
 				"davidanson.vscode-markdownlint",
 				"eamodio.gitlens",

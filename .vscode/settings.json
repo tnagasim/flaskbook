@@ -1,5 +1,6 @@
 {
     "python.linting.flake8Enabled": true,
+    "python.linting.enabled": true,
     "python.formatting.provider": "black",
     "editor.formatOnSave": true,
     "editor.codeActionsOnSave": {
@@ -7,8 +8,14 @@
     },
     "python.linting.mypyEnabled": true,
     "python.linting.flake8Args": [
-        "--max-line-length=88",
+        "--max-line-length=88"
     ],
+    "python.sortImports.path": "isort",
+    "python.sortImports.args": [
+        "--profile",
+        "black"
+    ],
+    "python.linting.isortEnabled": true,
     "cSpell.words": [
         "alisson",
         "anyio",
@@ -19,6 +26,7 @@
         "certifi",
         "cffi",
         "chardet",
+        "charliermarsh",
         "csholmq",
         "cstrap",
         "dateutil",

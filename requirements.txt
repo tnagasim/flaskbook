@@ -7,13 +7,13 @@ coverage
 dnspython
 email-validator
 flake8
+Flask
 Flask-DebugToolbar
 Flask-Login
 Flask-Mail
 Flask-Migrate
 Flask-SQLAlchemy
 Flask-WTF
-Flask
 idna
 iniconfig
 isort
@@ -24,8 +24,8 @@ jupyter
 Mako
 MarkupSafe
 mccabe
-mypy-extensions
 mypy
+mypy-extensions
 numpy
 opencv-python
 packaging
@@ -37,9 +37,10 @@ py
 pycodestyle
 pyflakes
 pyparsing
-pytest-cov
 pytest
+pytest-cov
 python-dotenv
+ruff
 scikit-learn
 SQLAlchemy
 toml
