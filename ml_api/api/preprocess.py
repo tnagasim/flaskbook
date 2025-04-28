@@ -19,10 +19,10 @@ def shrink_image(
 ):
     """画像サイズを8×8ピクセルのサイズに統一し、明るさも16階調のグレイスケールで白黒に変換する関数"""
     img_array = np.asarray(img)
-    h_indxis = np.where(img_array.min(axis=0) < 255)
-    v_indxis = np.where(img_array.min(axis=1) < 255)
-    h_min, h_max = h_indxis[0].min(), h_indxis[0].max()
-    v_min, v_max = v_indxis[0].min(), v_indxis[0].max()
+    h_indices = np.where(img_array.min(axis=0) < 255)
+    v_indices = np.where(img_array.min(axis=1) < 255)
+    h_min, h_max = h_indices[0].min(), h_indices[0].max()
+    v_min, v_max = v_indices[0].min(), v_indices[0].max()
     width, hight = h_max - h_min, v_max - v_min
 
     if width > hight:
@@ -38,8 +38,8 @@ def shrink_image(
         right = (center + hight // 2) + offset
         lower = v_max + offset
 
-    img_croped = img.crop((left, upper, right, lower)).resize((crop_size, crop_size))
-    img_data256 = pixel_size - np.asarray(img_croped)
+    img_cropped = img.crop((left, upper, right, lower)).resize((crop_size, crop_size))
+    img_data256 = pixel_size - np.asarray(img_cropped)
 
     min_bright, max_bright = img_data256.min(), img_data256.max()
     img_data16 = (img_data256 - min_bright) / (max_bright - min_bright) * max_size

@@ -11,6 +11,11 @@ def evaluate_probs(request) -> Response:
     """テストデータを利用してロジスティック回帰の学習済みモデルのアウトプットを評価"""
     file_id = request.json["file_id"]
     filenames = extract_filenames(file_id)
+    if type(filenames) is tuple:
+        response, _ = filenames
+        return response
+    if type(filenames) is not list:
+        raise
     img_test = get_shrunk_img(filenames)
 
     with open("model.pickle", mode="rb") as fp:
