@@ -24,7 +24,7 @@ def evaluate_probs(request) -> Response:
     X_true = np.array([int(filename[:1]) for filename in filenames])
 
     predicted_result = model.predict(img_test).tolist()
-    accuracy = model.score(img_test, X_true).tolist()
+    accuracy = model.score(img_test, X_true)
     observed_result = X_true.tolist()
 
     return jsonify(

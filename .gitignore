@@ -215,6 +215,7 @@ cython_debug/
 # End of https://www.toptal.com/developers/gitignore/api/python,flask,vscode
 
 *.db
+*.pickle
 *.sqlite
 apps/detector/model.pt
 migrations/
