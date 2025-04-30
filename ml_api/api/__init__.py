@@ -32,7 +32,7 @@ def check_schema():
     print(data["file_id"])
     print(data["file_name"])
     d = data["file_name"]
-    return f"Successfully get {d}"
+    return f"Successfully get {d}\n"
 
 
 @api.errorhandler(400)

@@ -1,8 +1,12 @@
 from functools import wraps
+from typing import Any, Callable, TypeVar
 
 from flask import current_app, jsonify, request
 from jsonschema import ValidationError, validate
 from werkzeug.exceptions import BadRequest
+
+
+F = TypeVar("F", bound=Callable[..., Any])
 
 
 def validate_json(f):
@@ -23,17 +27,15 @@ def validate_json(f):
     return wrapper
 
 
-def validate_schema(schema_name):
-    def decorator(f):
-        @wraps(f)
-        def wrapper(*args, **kw):
+def validate_schema(schema_name: str) -> Callable[[F], F]:
+    def decorator(func: F) -> F:
+        @wraps(func)
+        def wrapper(*args: Any, **kwargs: Any) -> Any:
             try:
                 # 先程、定義したjsonファイルの通りにjsonのbodyメッセージ送られているかどうかをチェックします。
                 validate(request.json, current_app.config[schema_name])
             except ValidationError as e:
                 return jsonify({"error": e.message}), 400
-            return f(*args, **kw)
-
-        return wrapper
-
+            return func(*args, **kwargs)
+        return wrapper  # type: ignore
     return decorator
